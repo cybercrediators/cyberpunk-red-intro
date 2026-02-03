@@ -1,0 +1,494 @@
+% Inbuilt themes in beamer
+\documentclass{beamer}
+
+\usepackage{graphicx}
+\usepackage{tikz}
+
+\usepackage{hyperref}
+\usepackage{color}
+\hypersetup{
+    colorlinks=true,
+    linkcolor=blue,
+    filecolor=magenta,      
+    urlcolor=cyan,
+}
+
+% Theme choice:
+\usetheme{metropolis}
+
+\setbeamercolor{block title alerted}{fg=white, bg=orange}
+\setbeamercolor{block body alerted}{ bg=orange!25}
+% Change standard block colors
+\setbeamercolor{block title}{bg=cyan, fg=white}
+\setbeamercolor{block body}{bg=cyan!10}
+
+% Title page details: 
+\title{Cyberpunk RED} 
+\author{Einführung}
+\date{\today}
+%\logo{
+%  \begin{tikzpicture}[overlay,remember picture]
+%    \node[left=1cm,below=0.001cm] at (current page.33){
+%        \includegraphics[width=1.5cm]{assets/cpred_logo.png}
+%    };
+%  \end{tikzpicture}
+%  %\includegraphics[scale=0.18]{assets/cpred_logo.png}
+%}
+
+\addtobeamertemplate{sidebar right}{}{%
+    \begin{tikzpicture}[remember picture, overlay]
+        \node[
+            anchor=north east, % Anchor the node at its top-right
+            xshift=-0.3cm,     % Move left from edge
+            yshift=0.3cm      % Move down from edge
+        ] at (current page.north east) {%
+            \includegraphics[height=1.5cm]{assets/cpred_logo.png}
+        };
+    \end{tikzpicture}%
+}
+\addtobeamertemplate{frametitle}{}{%
+    \begin{tikzpicture}[remember picture, overlay]
+        \node[
+            anchor=north east, % Anchor the node at its top-right
+            xshift=-0.2cm,     % Move left from edge
+            yshift=0.4cm      % Move down from edge
+        ] at (current page.north east) {%
+            \includegraphics[height=1.5cm]{assets/cpred_logo.png}
+        };
+    \end{tikzpicture}%
+}
+
+\begin{document}
+
+% Title page frame
+\begin{frame}
+    \titlepage 
+\end{frame}
+
+% Remove logo from the next slides
+%\logo{}
+
+% Outline frame
+\begin{frame}{Outline}
+    \tableofcontents
+\end{frame}
+
+\section{Ablauf}
+\begin{frame}
+  \begin{enumerate}
+    \item PnP Kurzerklärung 
+    \item Session 0 (Checkliste)
+    \item Einführung in die Welt von Cyberpunk RED
+    \item Zusammenfassung des Spielsystems (und wichtiger Regeln)
+    \item Charaktererstellung (+FoundryVTT)
+    \item \textbf{(Intro) Abenteuer}
+    \item \textbf{Feedbackrunde}
+  \end{enumerate}  
+\end{frame}
+
+\section{Pen and Paper Basics}
+\begin{frame}{Was ist das?}
+  \begin{itemize}
+    \item Rollenspiel (oder TTRPG)
+    \item Mischung aus (Brett-)spiel, Erzählung, Improvisation, lediglich eingeschränkt durch ein Regelsystem
+    \item Geschichte entsteht während des Spielens
+    \item Ursprünglich aus \textit{Wargames} in den 1950ern entstanden, mit Fantasy Einflüssen
+    \item Veröffentlichung von \textit{Dungeons \& Dragons} 1974
+    \item Erstes professionelles, \textbf{deutsches} Abenteuer 1984 mit DSA
+  \end{itemize}
+\end{frame}
+
+\begin{frame}{Genres \& Spielsysteme}
+  \begin{itemize}
+    \item Fantasy als größtes Genre, z.B. D\&D, DSA, Aborea
+    \item ...aber auch Sci-Fi (Shadowrun), Horror/Mystery (Call of Cthulhu)
+    \item Regelwerke legen Vorgaben für den Spielablauf fest (auch generische \textit{Universalwerke} möglich)
+    \item Verschiedene Prinzipien
+  \end{itemize}
+  \begin{block}{Teilnehmer}
+    \textbf{Gruppenabenteuer} bestehen im Normalfall aus einem Spielleiter und mehreren Spielern, welche Rollen unterschiedlicher Charaktere übernehmen, während der Spielleiter die Beschreibung der Welt, sowie Nicht-Spieler-Charaktere übernimmt.
+  \end{block}
+\end{frame}
+
+\begin{frame}
+  \begin{figure}
+    \includegraphics[scale=0.2]{assets/player_sceptic.jpeg}    
+  \end{figure}  
+\end{frame}
+
+
+\begin{frame}{Ablauf}
+  \begin{itemize}
+    \item Jeder Spieler erhält (normalerweise) einen Stift, Papier (mit Charakterinformationen), und verschiedene Würfel
+    \item Der Spielleiter bereitet ein Szenario vor, in welchem sich die Spieler befinden und beschreibt dieses den Spielern
+    \item Die Spieler treffen die Entscheidungen, der Spielleiter reagiert (im Rahmen des Regelwerks)
+    \item Bestimmte, durch den Spielleiter festgelegte, Aktionen, müssen durch einen Würfelwurf bestätigt werden
+  \end{itemize}
+\end{frame}
+
+\begin{frame}{Ablauf}
+  \begin{block}{Game Loop}
+    \begin{enumerate}
+      \item \textbf{Situation}: Leitung beschreibt die Szene
+      \item \textbf{Aktion}: Spieler tun Dinge bzw. versuchen es
+      \item \textbf{Probe}: Würfel tut Dinge
+      \item \textbf{Konsequenz}: Leitung beschreibt das Ergebnis
+    \end{enumerate}
+  \end{block}
+  \begin{block}{Kämpfe}
+    Festlegung einer Aktionsreihenfolge der Charaktere.
+    \begin{enumerate}
+      \item \textbf{Start einer Runde}: in Zeiteinheiten unterteilt
+      \item \textbf{Ausführen von Aktionen}: z.B. Bewegen, Angreifen, Dinge aufheben
+      \item \textbf{Beenden einer Runde}: der nächste Charakter führt seine Aktion aus, danach ist eine Runde beendet
+    \end{enumerate}
+  \end{block}
+\end{frame}
+
+\section{Cyberpunk RED: Session 0}
+\begin{frame}{Orga}
+  \begin{itemize}
+    \item Nächste Termine
+    \item Spielstil
+    \item Was wird gespielt
+    \item Erwartungen
+  \end{itemize}
+  $\rightarrow$ \url{https://rollenspielblog.net/rollenspiel/session-0/\#Session_0_Checkliste}
+\end{frame}
+
+\section{Cyberpunk RED: Infos}
+\begin{frame}{Cyberpunk RED}
+  \begin{alertblock}{Was ist Cyberpunk?}
+    \begin{itemize}
+        \item \textbf{Ursprung:} Mix aus 60er/70er Sci-Fi (Gibson, Dick) und japanischer Popkultur; inspiriert von Film Noir.
+        \item \textbf{Szenario:} ,,High Tech, Low Life`` -- Fortgeschrittene Technologie in einer post-industriellen, dystopischen Welt.
+        \item \textbf{Machtstruktur:} Dominanz von (großen) Konzernen
+        \item \textbf{Mensch \& Maschine:} Körpermodifikationen
+    \end{itemize}
+  \end{alertblock}
+  \begin{block}{TTRPG}
+    \begin{itemize}
+      \item 1988: Cyberpunk 2013 TTRPG, Entwickelt von Mike Pondsmith
+      \item ...1990: Cyberpunk 2020, 2005: Cyberpunk 3.0, 2020: Cyberpunk RED
+    \end{itemize}
+  \end{block}
+\end{frame}
+
+\begin{frame}{Night City im Jahr 2045}
+    \begin{itemize}
+        \item \textbf{Der Ort:} Night City ist ein ,,Freistaat`` an der Grenze zwischen Nord- und Südkalifornien -- unabhängig von den zerfallenen NUSA (New USA).
+        \item \textbf{Die Wirtschaft:} 
+            \begin{itemize}
+                \item Mangelwirtschaft durch unterbrochene Lieferketten.
+                \item \textbf{Night Markets:} Illegale Pop-up-Märkte in Containern/Ruinen. Nur über ,,Fixer`` zu finden.
+            \end{itemize}
+        \item \textbf{Lebensstandard:}
+            \begin{itemize}
+                \item Echtes Essen ist Luxus. Standard ist ,,Kibble`` (Trockenfutter) oder ,,Scop`` (Algen/Pilzmasse).
+                \item \textbf{Combat Zones:} Gesetzlose Zonen, die von der Polizei (NCPD) aufgegeben wurden.
+            \end{itemize}
+    \end{itemize}
+\end{frame}
+
+% Folie 2: Technologie & Netz
+\begin{frame}{Das Netz \& Technologie}
+    \begin{itemize}
+        \item \textbf{Das Netz (Nach dem DataKrash):}
+            \begin{itemize}
+                \item Kein weltweites Hacking mehr möglich.
+                \item Netzwerke sind isoliert (Air-gapped). \textbf{Netrunner} müssen physisch vor Ort sein (Kabel oder 6m Reichweite).
+                \item \textbf{CitiNet:} Ein lokales, textbasiertes Netzwerk für die Stadt.
+            \end{itemize}
+        \item \textbf{Cyberware \& Menschlichkeit:}
+            \begin{itemize}
+                \item Körperteile können durch Maschinen ersetzt werden.
+                \item \textbf{Preis:} Verlust von Empathie (Humanity).
+                \item Sinkt die Menschlichkeit auf 0, droht die \textbf{Cyberpsychose}: Der Verlust der Kontrolle und Wahnsinn (Zielscheibe für MaxTac/PsychoSquad).
+            \end{itemize}
+    \end{itemize}
+\end{frame}
+
+% Folie 3: Machtgruppen
+\begin{frame}{Konzerne \& Gangs}
+    \begin{itemize}
+        \item \textbf{Megakonzerne:}
+            \begin{itemize}
+                \item \textbf{Militech:} Waffenproduktion \& Privatarmee der NUSA; wollen Night City annektieren.
+                \item \textbf{BioTechnica:} Produzenten von CHOOH2 (Treibstoff) und Nahrung.
+                \item \textbf{Arasaka:} Japanischer Rüstungsgigant. Offiziell aus der Stadt verbannt, operiert aber im Schatten.
+            \end{itemize}
+        \item \textbf{Gangs (Beispiele):}
+            \begin{itemize}
+                \item \textbf{Maelstrom:} Technik-obsessiv, instabil, entfernen fast alles Fleisch.
+                \item \textbf{Tyger Claws:} Organisiertes Verbrechen, asiatisch geprägt, ,,ehrenhaft``.
+                \item \textbf{Bozos:} Letale Bio-Sculpting Clowns (Terroristen).
+                \item \textbf{Inquisitoren:} Kult, der Cyberware als Sünde ansieht.
+            \end{itemize}
+    \end{itemize}
+\end{frame}
+
+% Folie 4: Historischer Kontext (Kurzfassung)
+\begin{frame}{Timeline (kurz)}
+    \begin{itemize}
+        \item \textbf{Der Kollaps (1990-2020):} Zusammenbruch der USA, Aufstieg der Megakonzerne.
+        \item \textbf{Der Fall von Night City (2023):}
+            \begin{itemize}
+                \item Ein Team (inkl. Johnny Silverhand) infiltriert den Arasaka Tower.
+                \item Eine nukleare Explosion zerstört das Stadtzentrum.
+                \item Der Himmel färbt sich jahrelang rot $\rightarrow$ \textit{Time of the Red}.
+            \end{itemize}
+        \item \textbf{Die Gegenwart (2045):}
+            \begin{itemize}
+                \item Phase des Wiederaufbaus. Der Himmel ist nicht mehr blutrot, aber smog-grau.
+                \item Arasaka ist noch weg, Militech lauert an der Grenze.
+                \item Night City kämpft um seine Unabhängigkeit.
+            \end{itemize}
+    \end{itemize}
+\end{frame}
+
+\begin{frame}{Prinzipien von Cyberpunk RED}
+    \begin{alertblock}{The Three Laws of Cyberpunk}
+        \begin{enumerate}
+          \item \Large \textbf{Style over Substance}
+          \item \Large \textbf{Attitude is Everything}
+          \item \Large \textbf{Live on the Edge}
+        \end{enumerate}
+    \end{alertblock}
+\end{frame}
+
+\begin{frame}{Beachten}
+  \begin{alertblock}{Zusammengefasst:}
+    \begin{itemize}
+      \item Charaktere können \textbf{sehr schnell} sterben
+      \item $\rightarrow$ die Story steht hier klar im Vordergrund
+      \item Grundsätzlich spielt jeder für sich selbst und das Überleben/Lifestyle seines Charakters
+      \item es gibt (abgesehen von mehrstufigen Abenteuern) keine grundlegende größere Story...
+      \item ...es wird von Auftrag zu Auftrag in variierender Größe erzählt
+    \end{itemize}
+  \end{alertblock}
+\end{frame}
+
+\section{Cyberpunk RED: Spielsystem(e)}
+\begin{frame}{Generelle Infos}
+  \begin{itemize}
+    \item Würfel: d10 + (5-6) d6, mehr nicht
+    \item Skill basiertes System, keine Levelaufstiege (eigentlich immer eigener Check vs. Gegner)
+    \item Standard Check: \textbf{STAT + Skill + 1d10} (vs. gegner check oder gegen DV (Difficulty value)), muss höher sein!
+    \item Kritische Würfe: \textbf{10} oder \textbf{1} jeweils nochmal 1d10 würfeln und auf Wert addieren bzw. subtrahieren
+    \item Jedem Skill ist jeweils ein STAT zugeordnet, GM bestimmt welcher Skill und DV genutzt und geschafft werden muss (inkl. mögl. Modifier)
+  \end{itemize}
+\end{frame}
+
+\begin{frame}{STATs}
+  \begin{itemize}
+    \item \textbf{Mental}: INT, WILL, COOL, EMP
+    \item \textbf{Combat}: TECH, REF
+    \item \textbf{Fortune}: LUCK (begrenzt pro Session)
+    \item \textbf{Physical} BODY, DEX, MOVE
+    \item Sonst: Humanity (10*EMP, wechselwirkend), Hit Points (10 + (5[BODY und WILL average])
+  \end{itemize}
+\end{frame}
+
+\begin{frame}
+  \begin{figure}
+    \includegraphics[scale=0.1]{assets/rpg_progression.png}    
+  \end{figure}  
+\end{frame}
+
+
+\begin{frame}{Skills}
+  \begin{itemize}
+    \item Skills (und Abilities) können mit \textbf{Improvement Points} gelernt/verbessert werden (Abilities jeweils nur 1 Stufe pro)
+    \item DV (Difficulty Value) hängt von der Situation ab
+    \item \textbf{Sehr große Auswahl an Skills}
+    \item Gelernte Skills starten immer mit Stufe 2, Liste an Basic Skills (z.B. Sprache) vorgegeben
+    \item Unterteilt in verschiedene Kategorien (z.B. Awareness, Body, Social...)
+    \item Manche Skills erfordern mehr IP bzw. Punkte \textbf{(x2)}
+    \item Teilweise beeinflusst durch Abilities der Rollen
+  \end{itemize}
+\end{frame}
+
+\begin{frame}{(Role) Abilities und Lifepath}
+  \begin{block}{Abilities}
+    ...als einzige Rollen-basierte Unterscheidung, z.B. Netrunner mit Interface kann NET rennen, Execs bekommen NPCs als Team und ein kostenloses Apartment usw. (mehr dazu)
+  \end{block}
+  \begin{block}{Lifepath}
+    \begin{itemize}
+      \item Lifepath als Hintergrund "System" für Story Hooks/Plot Points
+      \item Unterteilung in generelle und Rollen-basierte Lifepath Entscheidungen
+      \item Beinhaltet sowas wie Freunde, Feinde, Motivation, Reputation
+      \item Reputationssystem, basierend auf Aktionen (Facedowns: \textbf{COOL + 1d10 + Reputation})
+    \end{itemize}
+  \end{block}
+\end{frame}
+
+\begin{frame}{Generelle Infos}
+  \begin{itemize}
+    \item Eher auf Story/Action ausgelegt
+    \item Starten mit Würfeln von \textbf{Initiative: REF + 1d10}, absteigend sortiert
+    \item Eine Runde: 3 Sek., jeweils 1 Zug aller Teilnehmenden
+    \item Ein Zug: 1 Bewegung (\textbf{MOVE} = 1square) + 1 Aktion (z.B. Nachladen, Angreifen etc.), kann aber kombiniert werden (z.B. l, s, l, s, l)
+    \item Besteht aus: Nah-/Fernkampf, Brawling, Grappling, Martial Arts, (Netrunning)
+    \item Schaden wird genommen nach Abzug von Rüstung, sowie kritische Verletzungen
+    \item Deckungssystem (nicht anvisierbar falls \textbf{komplett} hinter einer Deckung z.B. Wand)
+  \end{itemize}  
+\end{frame}
+
+\begin{frame}{Fernkampf (Ranged)}
+  \begin{block}{Basic Check}
+    \textbf{REF + Weapon Skill + 1d10} vs \textbf{DV of Defender by Range (Target/Weapons)} oder DEX + Evasion + 1d10 (falls Defender REF \>= 8)    
+  \end{block}
+  \begin{block}{Called Shots}
+      sog. \textbf{Aimed Shots} vorher angekündigt auf Körperteil mit \textbf{-8} Modifier, dafür zus. Effekte
+  \end{block}
+\end{frame}
+
+\begin{frame}{Fernkampf Part 2}
+  \begin{block}{Modi}
+    Versch. Feuermodi (z.B. durch Autofire Skill), min. 10 Kugeln im Magazin, 2d6 x DV to hit, (siehe AF chart), oder Suppressive Fire (auch min. 10 Ammo innerhalb 20sq, WILL + Concentration + 1d10 check vs your REF + Autofire + 1d10)
+  \end{block}
+  \begin{block}{Sonstiges}
+    Bogen (Nachladen keine eigene Aktion), Shotguns (alle vor einem DV13, 3sq), Explosives (in 5x5sq.)
+  \end{block}
+\end{frame}
+
+\begin{frame}
+  \begin{figure}
+    \includegraphics[scale=0.25]{assets/shotguns.jpeg}    
+  \end{figure}  
+\end{frame}
+
+\begin{frame}{Nahkampf (Melee)}
+  \begin{block}{Generell}
+    Innerhalb 2sq, \textbf{DEX + Relevant Melee Att. Skill + 1d10} vs \textbf{Def. DEX + Evasion + 1d10} (melee ignore half def. armour, round up)    
+  \end{block}
+  \begin{block}{Brawling, Bar Knuckle, Grappling}
+    \begin{itemize}
+      \item Skaliert mit BODY: Grapple, Snatch, Chocke, Throw möglich (mit \textbf{DEX + Brawl + 1d10 vs Def. DEX + Brawl + 1d10}), -2 für alle Aktionen, Gegner kein MOVE
+      \item Schilde möglich (Einhändig, Gegner)      
+    \end{itemize}
+  \end{block}
+  \begin{block}{Martial Arts}
+    \textbf{DEX + MA Skill + 1d10 vs. Def. DEX + Evasion + 1d10 or DV}, 2ROF, je nach Martial Arts Skill Special Moves
+  \end{block}
+\end{frame}
+
+\begin{frame}
+  \begin{figure}
+    \includegraphics[scale=0.4]{assets/death_saves.jpg}    
+  \end{figure}  
+\end{frame}
+
+\begin{frame}{Schaden}
+  \begin{block}{Schaden nehmen}
+    \begin{enumerate}
+      \item Angreifer würfelt Schaden      
+      \item Armor SP (norm. am Körper) abziehen und Rest von HP abziehen (mit Ausnahmen)
+      \item Falls Schaden genommen, von Armor 1 SP abziehen
+    \end{enumerate}
+  \end{block}
+  \begin{block}{Wundstatus}
+    Leicht Verletzt (kleiner Full HP), Stark Verletzt (kleiner 1/2 HP), Tödlich Verletzt (kleiner 1 HP). Stabilisierung über DV erreichbar
+  \end{block}
+  \begin{block}{Death Save}
+    \textbf{1d10} muss unter BODY liegen, jede Runde um 1 erhöht. DV15 für Stabilisierung.
+    \textbf{Ein nicht geschaffter DS $\rightarrow$ Tod.}
+  \end{block}
+\end{frame}
+
+\begin{frame}{Armor, Kritische Verletzungen}
+  \begin{block}{Armor}
+    SP (Stopping Power), unterteilt in Head und Body Armor
+  \end{block}
+  \begin{block}{Kritische Verletzungen}
+    Auftreten, falls von Angriff Schaden 2x6 gewürfelt wird. Dann Critical Injury Table nutzen und 2d6.
+  \end{block}  
+  \begin{block}{Sonstiges}
+    Verbrennen, Ertrinken (1min = 1BODY), Fallschaden, Drogen/Gifte, Radioaktivität
+  \end{block}
+\end{frame}
+
+\begin{frame}{Heilung usw}
+  \begin{block}{Trauma Team}
+    Bewaffnetes Ärzte Team kommt vorbei, falls Abo abgeschlossen wurde (Silber 500eb/Exec 1000eb pro Monat) oder für Teammitglied. 1d6 Runden bis die da sind.
+  \end{block}
+  \begin{block}{Stabilisierung und Heilung}
+    Stabilisierung beginnt den Heilungsprozess (HP = BODY pro Tag wenn man sich ausruht) durch DV10, 13, 15 von Ziel durch \textbf{TECH + First Aid/Paramedic + 1d10}, bei 1HP erstmal bewusstlos
+  \end{block}
+  \begin{block}{Heilung durch Skills}
+    Möglich mit \textbf{Cybertech, First Aid, Paramedic, Surgery}, z.B. Quick Fix 1min (Injury weg, Effekt bleibt) oder Treatment 4hr (permanent, nur extern möglich). Sonst auch Krankenhaus möglich.
+  \end{block}
+\end{frame}
+
+\begin{frame}{Cyberware, Cyberpsychosis}
+  \begin{block}{Installation}
+    Nicht alle Cyberware kann überall installiert werden (siehe Tabelle). Bodysculpting möglich zur Veränderung des Aussehens.
+  \end{block}
+  \begin{block}{Cyberpsychosis}    
+    Installationen von Cyberware (oder auch Traumata) reduzieren Humanity (und damit EMP), was bei 0 zu einer Cyberpsychosis führen kann und der Charakter vom GM übernommen und von der Polizei gejagt wird. Therapie kann diese und Folge von Drogen wieder abschwächen.
+  \end{block}
+\end{frame}
+
+\begin{frame}
+  \begin{figure}
+    \includegraphics[scale=0.5]{assets/netrunning.jpeg}    
+  \end{figure}  
+\end{frame}
+
+\begin{frame}{Netrunning}
+  \begin{alertblock}{Hinweise}
+    Zusätzliche NET Ebene in Kämpfen und Situationen. Es muss sich zunächst physisch mit dem Interface des jeweiligen lokalen Netzwerks verbunden werden. Nur möglich für Netrunner (Wizard Äquivalent)!
+  \end{alertblock}
+  \begin{itemize}    
+    \item NET Ebenen sind quasi wie ein Gebäude aufgebaut mit verschiedenen Ebenen
+    \item Verschiedene Abwehrmechanismen (z.B. Black ICE) oder Angreifer sind dort vorhanden
+    \item Programme des Cyberdecks nutzen für Aktionen im NET
+    \item Es können z.B. Kameras, Fallen aktiviert werden
+    \item Je "Meat Space" Runde, Anzahl an NET Aktionen (basiert auf Interface Rang)
+    \item \textbf{Interface + (BI/Prog) ATK + 1d10} vs Gegner
+  \end{itemize}
+\end{frame}
+
+\begin{frame}{Sonstiges}
+  \begin{alertblock}{Hinweis}
+    Erstmal nicht ganz so wichtig, nur der Vollständigkeit halber kurz aufgeführt!
+  \end{alertblock}
+  \begin{itemize}
+    \item Fahrzeugkämpfe (versch. Fahrzeuge, Maneuver, Rammen und Ausweichen)
+    \item Hustle Charts (was passiert zwischen Sessions)
+    \item Lifestyle (man braucht halt monatlich Geld, Schlafen ist wichtig)
+  \end{itemize}
+\end{frame}
+
+\section{Cyberpunk RED: Charaktererstellung}
+\begin{frame}{Charaktererstellung}
+  Verschiedene Möglichkeiten (Template, halbes Template, "Calculated"), generell:
+  \begin{enumerate}
+    \item Rolle wählen (Abstimmen in Gruppe/Meet the Teams)
+    \item Lifepath wählen/würfeln
+    \item STATS, derived STATs würfeln/wählen
+    \item Skills würfeln/wählen
+    \item Gear, Outfit, Lifestyle, Cyberware würfeln/kaufen
+  \end{enumerate}
+  $\rightarrow$ \href{https://cyberpunkred.com/}{Charaktererstellung online (dann Export)}
+\end{frame}
+
+\section{\textbf{Intro Abenteuer}}
+\begin{frame}{FoundryVTT}
+  \begin{block}{Virtual Table Top}
+    Bessere Übersicht, digital, Spielsystem zum Klicken (einfacher am Anfang).        
+    \\
+    $\rightarrow$ \href{https://foundryvtt.com/}{Hier Link einfügen}
+  \end{block}  
+\end{frame}
+
+\section{\textbf{Feedbackrunde}}
+\begin{frame}{Feedbackrunde}
+  \begin{itemize}
+    \item "Stars": Was war besonders gut? (min. 1)
+    \item Wünsche: z.B. für nächstes Mal
+    \item (Allgemeines (Spiel an sich, GM, "Ich bin raus"))
+  \end{itemize}
+\end{frame}
+
+\end{document}
